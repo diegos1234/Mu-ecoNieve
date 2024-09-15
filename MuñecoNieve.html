@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Muñeco de Nieve</title>
+</head>
+<body>
+	<canvas id="miLienzo"></canvas>
+</body>
+<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+<script>
+	var codigoDePrograma = function(instanciaProcessing) {
+		with (instanciaProcessing) {
+			size(400, 400);
+			background(135, 206, 250); // Cielo azul
+			frameRate(30);
+
+			// Dibujar nieve en el suelo
+			fill(255);
+			noStroke();
+			rect(0, 350, 400, 50);
+
+			// Cuerpo del muñeco de nieve
+			fill(255);
+			stroke(0);
+			strokeWeight(2);
+
+			// Base
+			ellipse(200, 300, 150, 150);
+			
+			// Cuerpo medio
+			ellipse(200, 200, 100, 100);
+			
+			// Cabeza
+			ellipse(200, 120, 75, 75);
+
+			// Brazos (ramas)
+			stroke(139, 69, 19); // Color marrón para las ramas
+			strokeWeight(5);
+			line(150, 200, 80, 150); // Brazo izquierdo
+			line(250, 200, 320, 150); // Brazo derecho
+
+			// Ojos
+			fill(0);
+			noStroke();
+			ellipse(185, 115, 10, 10); // Ojo izquierdo
+			ellipse(215, 115, 10, 10); // Ojo derecho
+
+			// Botones
+			ellipse(200, 170, 10, 10); // Botón superior
+			ellipse(200, 200, 10, 10); // Botón medio
+			ellipse(200, 230, 10, 10); // Botón inferior
+
+			// Nariz (zanahoria)
+			fill(255, 165, 0);
+			triangle(200, 125, 200, 135, 230, 130);
+		}
+	};
+
+	var canvas = document.getElementById("miLienzo");
+	var instancia = new Processing(canvas, codigoDePrograma);
+</script>
+</html>
